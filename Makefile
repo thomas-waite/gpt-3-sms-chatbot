@@ -6,3 +6,7 @@ serve_app:
 
 serve_URL:
 	ngrok http ${PORT}
+
+deploy:
+	gcloud app deploy
+

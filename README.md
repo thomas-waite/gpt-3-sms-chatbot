@@ -1,3 +1,5 @@
+<p align="center"><img src="https://github.com/thomas-waite/gpt-3-sms-chatbot/blob/master/text-image.png" width="300px"/></p>
+
 # GPT-3 text chatbot
 
 A GPT-3 chatbot connected to Twilio text messaging
