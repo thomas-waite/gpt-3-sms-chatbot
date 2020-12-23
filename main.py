@@ -1,14 +1,16 @@
+import os
+from dotenv import load_dotenv
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
 from flask_cors import CORS
 from chatbot import GPT
-
-app = Flask(__name__)
-CORS(app)
+load_dotenv()
 
 # TODO: use a session cookie rather than a stateful class.
 # This will maintain the history for all users
-gpt = GPT()
+
+app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/', methods=['GET'])
@@ -27,4 +29,6 @@ def bot():
 
 
 if __name__ == '__main__':
+    API_KEY = os.getenv('API_KEY')
+    gpt = GPT(API_KEY)
     app.run(host='0.0.0.0', port='80')

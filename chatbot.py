@@ -1,14 +1,11 @@
-import os
-from dotenv import load_dotenv
 from typing import Any
 import openai
-load_dotenv()
-
-API_KEY = os.environ.get('API_KEY')
 
 
 class GPT:
-    def __init__(self):
+    def __init__(self, API_KEY):
+        if API_KEY is None:
+            raise ValueError
         openai.api_key = API_KEY
         self.completion = openai.Completion()
         self.context = '''Human: Hello, who are you?
